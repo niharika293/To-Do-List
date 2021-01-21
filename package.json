@@ -1,0 +1,20 @@
+{
+  "name": "to_do_list_app",
+  "version": "1.0.0",
+  "description": "Create your own amazing to-do list and manage tasks!",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "To-do",
+    "Productivity",
+    "Tasks"
+  ],
+  "author": "Niharika Gurnani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
