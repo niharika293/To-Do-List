@@ -1,10 +1,93 @@
-<html>
-    <head>
-        <title>My To-Do List App!</title>
-    </head>
-    <body>
-        <h1>
-            Welcome to my AMAZINGG to-do list.!
-        </h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-do List App</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet"
+        href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div id="to_do_div">
+        <div id="header_div">
+            <h2>TODO App</h2>
+        </div>
+        <hr>
+        <form action="/add" method="post">
+            <div id="description_div">
+                <label id="lbl_desc" for="inp_desc">DESCRIPTION</label>
+                <input type="text" name="description" id="inp_desc" placeholder="What do you need to do?">
+            </div>
+            <hr>
+            <div id="category_date_div">
+                <div id="category_div">
+                    <label for="ddl_category" id="lbl_category">CATEGORY</label>
+                    <select name="category" id="ddl_category">
+                        <option value="" class="opt_styles">Choose a category</option>
+                        <option value="personal" class="opt_styles">Personal</option>
+                        <option value="work" class="opt_styles">Work</option>
+                        <option value="school" class="opt_styles">School</option>
+                        <option value="cleaning" class="opt_styles">Cleaning</option>
+                        <option value="others" class="opt_styles">Others</option>
+                    </select>
+                </div> <!-- end of category_div -->
+                <!-- For vertical divider line. -->
+                <div id="divider_div"></div>
+                <div id="date_div">
+                    <label for="para_dp" id="lbl_date">Due Date</label>
+                    <p id="para_dp"><input type="date" name="due_date"  placeholder="dd/mm/yyyy" >
+                        <span>Click Me!!!!</span>
+                    </p>
+                </div> <!-- end of date_div -->
+            </div>
+            <hr>
+            <div id="buttons_div">
+                <button id="btn_add" type="submit" onclick="checkValues()"><i class="fas fa-plus"></i> ADD TASK</button>
+        </form>
+    </div> <!-- end of buttons div -->
+    <hr>
+    <form action="/delete" method="POST">
+        <div id="main_tasks_div">
+            <button id="btn_delete"><i class="fas fa-trash-alt"></i> DELETE TASKS</button>
+            <hr>
+            <div id="inner_tasks_div">
+                <% for(let i of todo_list){%>
+                    <div class="containers">                    <!-- <label class="container">Let's Make a To-do App -->
+                    <label class="container">
+                        <%=i.description%>
+                            <input type="checkbox" name="checked" value="<%=i._id%>">
+                            <span class="checkmark"></span>
+                    </label>
+                    <!-- <label id="lbl_selected_category">Work</label> -->
+                    <label class="<%=i.category%>" id="lbl_selected_category">
+                        <%=i.category%>
+                    </label>
+                    <br>
+                    <i id="icon_calendar" class="fas fa-calendar-alt"></i>
+                    <!-- <label id="lbl_deadline">Jun 1, 2019</label> -->
+                    <label id="lbl_deadline">
+                        <%=i.due_date.toDateString()%>
+                    </label>
+                    <!-- <hr> -->
+                </div>
+
+                <%}%>
+            </div> <!-- end of inner_tasks_div -->
+        </div> <!-- end of main_tasks_div -->
+    </form>
+    <!-- <hr> -->
+    </div> <!-- end of to_do_div -->
+    <script src="/js/home.js"></script>
+</body>
+
 </html>

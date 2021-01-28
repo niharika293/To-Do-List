@@ -1,0 +1,280 @@
+body{
+    margin: 0;
+    height: 100vh;
+    /* background: #03dfff;
+    background: linear-gradient(139deg,#03ddffcb 0%,#ff0381b6 90%); */
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);    
+}
+/* Styles for To-Do Div. */
+#to_do_div{
+    position: absolute;
+    margin-top: 30px;
+    left: 30%;
+    min-width: 500px;
+    min-height: 500px;
+    border: 2px solid wheat;
+    border-radius: 25px;
+    padding: 2px;
+    background-image: linear-gradient(to right, #b2ebf2, #f59ccf);
+    /* background: #f59ccf; */
+    background: #e1bee7;
+}
+#header_div h2{
+    text-align: center;
+    font-family: cursive;
+    font-weight: 800;
+    color:deeppink;
+    background: aliceblue;
+    padding: 2px;
+    border-radius: 30px;
+}
+/* Styles for Description Container */
+#lbl_desc{
+    display: block;
+    font-family: cursive;
+    font-size: 1rem;
+}
+#inp_desc,#datepicker-1{
+    outline: none;
+    border: none;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    color: purple;
+    font-size: 1.2rem;
+}
+/* Styles for Category and Date. */
+#category_date_div{
+    font-family: cursive;
+    font-size: 1rem;
+    padding-bottom: 10px;
+}
+#category_div{
+    display: inline-block;
+    margin-right: 30px;
+}
+#lbl_category{
+    display: block;
+}
+#ddl_category{
+    padding: 8px 12px;
+    color: slategray;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 5px 3px rgb(0 0 0 / 50%);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+#ddl_category:focus,#ddl_category:hover{
+    outline: none;
+    border: 1px solid purple;
+}
+#ddl_category option:focus, #ddl_category:hover, #ddl_category:active{
+    outline: none;
+    background: rgb(219, 41, 115)!important;
+    border: 1px solid purple;
+    color: wheat;
+    font-size: 1.1rem;
+}
+#ddl_category:active, #ddl_category:hover {
+    outline: none;
+  }
+  
+  /* make it red instead (with with same width and style) */
+  #ddl_category:active, #ddl_category:hover {
+    outline-color: red;
+  }
+#category_div::before{
+    content: "\f107";
+    position: absolute;
+    top: 185px;
+    left: 177px;
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    pointer-events: none;
+    font-size: 30px;
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+}
+
+.opt_styles{
+   padding: 1rem;
+   font-size: 1rem;
+}
+#divider_div{
+    display: inline-block;
+    width: 2px;
+    height: 85px;
+    position: absolute;
+    top: 154px;
+    background: yellowgreen;
+}
+#date_div{
+    display: inline-block;
+    margin-left: 13px;
+}
+#lbl_date{
+    display: block;
+}
+#para_dp{
+    margin: 0px;
+}
+#para_dp input{  
+  outline: none;
+  border: none;
+  padding: 7px 12px;
+}
+/* Styles for the buttons - Add and Delete */
+#buttons_div{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#buttons_div a{
+  text-decoration: none;
+}
+#buttons_div button , #main_tasks_div button{
+    border: none;
+    color:floralwhite;
+    display: inline-block;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-family: cursive;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+button:hover{
+  transform: scale(1.2);
+  transition-duration: 0.8s;
+  box-shadow:  6px 5px grey;
+}
+input:hover{
+  transform: scale(1.1);
+	transition-duration: 0.8s;
+}
+input{
+  border-radius: 7px;
+  box-shadow: 0 5px 3px rgb(0 0 0 / 50%);
+}
+#btn_add{
+    background-color: mediumvioletred;
+    margin-left: 140px;
+    min-width: 217px;
+}
+#btn_delete{
+    display: block!important;
+    background-color: orangered;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+/* Styles for the Tasks */
+#main_tasks_div{
+    padding-top: 10px;
+    min-height: 70px;
+}
+#inner_tasks_div{
+  min-height: 70px;
+}
+/* Create a custom checkbox */
+.container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: cursive;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-shadow: -1px 0 wheat, 0 1px #00bcd4, 1px 0 wheat, 0 -1px wheat;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }  
+
+  #lbl_selected_category{
+    position: absolute;
+    right: 50px;
+    padding: 10px;
+    background-color: darkcyan;
+    font-family: cursive;
+    font-size: 1.1rem;
+    color: floralwhite;
+    min-width: 140px!important;
+    font-weight: unset;
+    text-align: center;
+  }
+  #icon_calendar{
+    position: absolute;
+    left: 35px;
+    color:midnightblue;
+  }
+  #lbl_deadline{
+    position: absolute;
+    left: 58px;
+    color:midnightblue;
+    font-family: serif;
+    font-size: 1rem;
+  }
+  #inner_tasks_div{
+    height: auto;
+  }
+  .containers{
+    height: 70px;
+    display: block;
+  }
